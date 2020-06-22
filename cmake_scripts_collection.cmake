@@ -140,7 +140,12 @@ function(integrate_vcpkg)
         "${A_VCPKG_PATH}/installed/${triplet}/include/${dir}"
       )
     endforeach()
-    target_link_libraries(${target} PUBLIC debug ${debug_libs} optimized ${release_libs})
+    foreach(debug_lib ${debug_libs})
+      target_link_libraries(${target} PUBLIC "$<$<CONFIG:Debug>:${debug_lib}>")
+    endforeach()
+    foreach(release_lib ${release_libs})
+      target_link_libraries(${target} PUBLIC "$<$<CONFIG:Release>:${release_lib}>")
+    endforeach()
   endforeach()
 endfunction()
 
