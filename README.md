@@ -1,11 +1,12 @@
 # CMake Scripts Collection
 
-Usage:
+## Installation
+Just copy `cmake_scripts_collection.cmake` to the root of your repo and then include this file.
 ```cmake
 include(cmake_scripts_collection.cmake)
 ```
 
-npm example:
+## Npm Integration Example
 
 ```cmake
 include(cmake_scripts_collection.cmake)
